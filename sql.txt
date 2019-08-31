@@ -10,3 +10,45 @@ Email nvarchar(50),
 Type nchar(10) not null,
 UserImg nvarchar(250)
 ) ;
+CREATE TABLE Activity
+(
+ActivityID INT Primary key auto_increment,
+ActivityName nvarchar(125) NOT NULL,
+EndTime datetime NOT NULL,
+ActivityPicture nvarchar(250) NOT NULL,
+ActivityIntroduction nvarchar(8000),
+Summary nvarchar(250),
+ActivityVerify nchar(10) NOT NULL DEFAULT '´ýÉóºË',
+ActivityStatus nchar(10),
+UserName nvarchar(50) NOT NULL
+);
+CREATE TABLE WorkInfo
+(
+WorkID int PRIMARY KEY auto_increment,
+WorkName nvarchar(50) NOT NULL,
+WorkPicture nvarchar(250) NOT NULL,
+UploadTime datetime NOT NULL,
+WorkIntroduction nvarchar(8000),
+WorkVerify nchar(10) NOT NULL DEFAULT '´ýÉóºË',
+UserName nvarchar(50) NOT NULL,
+ActivityName nvarchar(125),
+Recommend nchar(2) NOT NULL DEFAULT '·ñ',
+RecommmedTime datetime
+);
+CREATE TABLE Comment
+(
+CommentID int Primary key auto_increment,
+WorkID int not NULL,
+WorkName nvarchar(50) NOT NULL,
+UserName nvarchar(50) NOT NULL,
+CommentContent nvarchar(8000) NOT NULL,
+CommentTime datetime NOT NULL
+);
+CREATE TABLE Image
+(
+ImgID int Primary key auto_increment,
+ImgUrl nvarchar(50) NOT NULL,
+ImgText nvarchar(50) NOT NULL,
+ImgLink nvarchar(100) NOT NULL,
+ImgAlt nvarchar(50) NOT NULL
+);
