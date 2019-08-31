@@ -52,3 +52,11 @@ ImgText nvarchar(50) NOT NULL,
 ImgLink nvarchar(100) NOT NULL,
 ImgAlt nvarchar(50) NOT NULL
 );
+ALTER TABLE WorkInfo
+ADD FOREIGN KEY(UserName) REFERENCES UserInfo(UserName);
+ALTER TABLE Activity
+ADD FOREIGN KEY(UserName) REFERENCES UserInfo(UserName);
+ALTER TABLE Comment
+ADD FOREIGN KEY(UserName) REFERENCES UserInfo(UserName);
+ALTER TABLE Comment
+ADD FOREIGN KEY(WorkID) REFERENCES WorkInfo(WorkID);
